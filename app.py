@@ -2,7 +2,6 @@ import os
 import json
 import glob
 from flask import Flask, render_template
-from waitress import serve
 
 
 app = Flask(__name__)
@@ -56,6 +55,5 @@ def get_transcript(json_file):
     return render_template('transcripts.html', data=data, title=title, youtube_link=youtube_link)
 
 
-if __name__ == '__main__':
-    #app.run(host='0.0.0.0', port=80) 
-    serve(app, host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+	app.run()
