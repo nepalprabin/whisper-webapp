@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+        <title>FlaskBlog</title>
+    </head>
+<body>
+    <div class="container">
+    <h2>These are transcripts for Stanford NLP Lectures from <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ">this</a> playlist. The transcripts are generated using OpenAI's <a href="https://github.com/openai/whisper">whisper</a></h2>
+    <h2>Lectures</h2>
+    {% for d in data%}
+   <p><a href="https://www.youtube.com/watch?v={{d[1]}}">Link</a>: <span class="text_body"><a style="color: inherit" href="{{ url_for('get_transcript', json_file=d[2]) }}">{{d[0]}}</a>  </span></p>
+    {%endfor%}
+    </div>
+</body>
+</html>
